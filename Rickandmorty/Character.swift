@@ -1,17 +1,17 @@
 import Foundation
 
-struct Info: Codable {
+struct Info:Decodable {
     let info: InfoClass
     let results: [Result]
 }
 
-struct InfoClass: Codable {
+struct InfoClass:Decodable {
     let count, pages: Int
     let next: String
     let prev: String?
 }
 
-struct Result: Codable {
+struct Result:Identifiable, Hashable, Decodable {
     let id: Int
     let name: String
     let status: Status
@@ -23,24 +23,47 @@ struct Result: Codable {
     let episode: [String]
     let url: String
     let created: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case id, name, status, species, type, gender, origin, location, image, episode, url, created
+    }
 }
 
 // The gender of the character ('Female', 'Male', 'Genderless' or 'unknown').
-enum Gender: String, Codable {
+enum Gender:String, Decodable {
     case female = "Female"
     case male = "Male"
     case genderless = "genderless"
     case unknown = "unknown"
+    
+    enum CodingKeys: String, CodingKey {
+        case female = "female"
+        case male = "male"
+        case genderless = "genderless"
+        case unknown = "unknown"
+    }
 }
 
-struct Location: Codable {
+struct Location:Identifiable, Hashable, Decodable {
+    var id = UUID()
     let name: String
     let url: String
+    
+    enum CodingKeys: String, CodingKey {
+        case name = "name"
+        case url = "url"
+    }
 }
 
 // The status of the character ('Alive', 'Dead' or 'unknown').
-enum Status: String, Codable {
+enum Status:String, Decodable {
     case alive = "Alive"
     case dead = "Dead"
     case unknown = "unknown"
+    
+    enum CodingKeys: String, CodingKey {
+        case alive = "alive"
+        case dead = "dead"
+        case unknown = "unknown"
+    }
 }
