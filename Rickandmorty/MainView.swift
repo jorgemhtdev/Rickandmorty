@@ -1,14 +1,10 @@
-//
-//  ContentView.swift
-//  Rickandmorty
-//
-//  Created by jorgemht on 24/2/23.
-//
-
 import SwiftUI
 import CoreData
 
-struct ContentView: View {
+struct MainView: View {
+    
+    @ObservedObject var vm = MainVM()
+
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
@@ -81,8 +77,8 @@ private let itemFormatter: DateFormatter = {
     return formatter
 }()
 
-struct ContentView_Previews: PreviewProvider {
+struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        MainView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

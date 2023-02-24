@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E47814C29A91E3C0044E67F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E47814B29A91E3C0044E67F /* NetworkService.swift */; };
+		8E47814E29A91E690044E67F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E47814D29A91E690044E67F /* Endpoint.swift */; };
+		8E47815029A91ED00044E67F /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E47814F29A91ED00044E67F /* Character.swift */; };
+		8E47815229A91F110044E67F /* MainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E47815129A91F110044E67F /* MainVM.swift */; };
 		8EF608BC29A916D900342BF6 /* RickandmortyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF608BB29A916D900342BF6 /* RickandmortyApp.swift */; };
-		8EF608BE29A916D900342BF6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF608BD29A916D900342BF6 /* ContentView.swift */; };
+		8EF608BE29A916D900342BF6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF608BD29A916D900342BF6 /* MainView.swift */; };
 		8EF608C029A916DA00342BF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EF608BF29A916DA00342BF6 /* Assets.xcassets */; };
 		8EF608C329A916DA00342BF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EF608C229A916DA00342BF6 /* Preview Assets.xcassets */; };
 		8EF608C529A916DA00342BF6 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF608C429A916DA00342BF6 /* Persistence.swift */; };
@@ -36,9 +40,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E47814B29A91E3C0044E67F /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		8E47814D29A91E690044E67F /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		8E47814F29A91ED00044E67F /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		8E47815129A91F110044E67F /* MainVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVM.swift; sourceTree = "<group>"; };
 		8EF608B829A916D900342BF6 /* Rickandmorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rickandmorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EF608BB29A916D900342BF6 /* RickandmortyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickandmortyApp.swift; sourceTree = "<group>"; };
-		8EF608BD29A916D900342BF6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8EF608BD29A916D900342BF6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8EF608BF29A916DA00342BF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8EF608C229A916DA00342BF6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8EF608C429A916DA00342BF6 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -75,6 +83,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E47814829A91D6A0044E67F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8E47814F29A91ED00044E67F /* Character.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		8E47814929A91E1D0044E67F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8E47814B29A91E3C0044E67F /* NetworkService.swift */,
+				8E47814D29A91E690044E67F /* Endpoint.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
 		8EF608AF29A916D900342BF6 = {
 			isa = PBXGroup;
 			children = (
@@ -98,8 +123,11 @@
 		8EF608BA29A916D900342BF6 /* Rickandmorty */ = {
 			isa = PBXGroup;
 			children = (
+				8E47814929A91E1D0044E67F /* Services */,
+				8E47814829A91D6A0044E67F /* Model */,
 				8EF608BB29A916D900342BF6 /* RickandmortyApp.swift */,
-				8EF608BD29A916D900342BF6 /* ContentView.swift */,
+				8EF608BD29A916D900342BF6 /* MainView.swift */,
+				8E47815129A91F110044E67F /* MainVM.swift */,
 				8EF608BF29A916DA00342BF6 /* Assets.xcassets */,
 				8EF608C429A916DA00342BF6 /* Persistence.swift */,
 				8EF608C629A916DA00342BF6 /* Rickandmorty.xcdatamodeld */,
@@ -263,10 +291,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E47814C29A91E3C0044E67F /* NetworkService.swift in Sources */,
 				8EF608C829A916DA00342BF6 /* Rickandmorty.xcdatamodeld in Sources */,
+				8E47815029A91ED00044E67F /* Character.swift in Sources */,
 				8EF608C529A916DA00342BF6 /* Persistence.swift in Sources */,
-				8EF608BE29A916D900342BF6 /* ContentView.swift in Sources */,
+				8EF608BE29A916D900342BF6 /* MainView.swift in Sources */,
+				8E47814E29A91E690044E67F /* Endpoint.swift in Sources */,
 				8EF608BC29A916D900342BF6 /* RickandmortyApp.swift in Sources */,
+				8E47815229A91F110044E67F /* MainVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
