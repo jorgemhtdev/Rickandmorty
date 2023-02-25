@@ -33,6 +33,7 @@ func cargaArtesanal(values: [Result]) {
         try? ctx.save()
     }
     
+    cargaImgArtesanal()    
 }
 
 func cargaImgArtesanal() {

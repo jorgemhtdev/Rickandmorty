@@ -7,10 +7,10 @@
         <attribute name="name" attributeType="String" spotlightIndexingEnabled="YES"/>
         <attribute name="species" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="String" defaultValueString="&quot;&quot;"/>
-        <relationship name="gender" optional="YES" maxCount="1" deletionRule="Deny" destinationEntity="GenderDB" inverseName="character" inverseEntity="GenderDB"/>
+        <relationship name="gender" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GenderDB" inverseName="character" inverseEntity="GenderDB"/>
         <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LocationDB" inverseName="character" inverseEntity="LocationDB"/>
         <relationship name="origin" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OriginDB" inverseName="character" inverseEntity="OriginDB"/>
-        <relationship name="status" optional="YES" maxCount="1" deletionRule="Deny" destinationEntity="StatusDB" inverseName="character" inverseEntity="StatusDB"/>
+        <relationship name="status" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StatusDB" inverseName="character" inverseEntity="StatusDB"/>
     </entity>
     <entity name="GenderDB" representedClassName="GenderDB" syncable="YES" codeGenerationType="class">
         <attribute name="gender" optional="YES" attributeType="String"/>
