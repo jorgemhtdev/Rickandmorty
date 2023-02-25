@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8E13256529AAA6EA000305D8 /* MainUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E13256429AAA6EA000305D8 /* MainUITest.swift */; };
+		8E13256A29AAD1D6000305D8 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 8E13256929AAD1D6000305D8 /* FirebaseAnalytics */; };
+		8E13256C29AAD1D6000305D8 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 8E13256B29AAD1D6000305D8 /* FirebaseCrashlytics */; };
 		8E47814C29A91E3C0044E67F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E47814B29A91E3C0044E67F /* NetworkService.swift */; };
 		8E47814E29A91E690044E67F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E47814D29A91E690044E67F /* Endpoint.swift */; };
 		8E47815029A91ED00044E67F /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E47814F29A91ED00044E67F /* Character.swift */; };
@@ -87,6 +89,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E13256A29AAD1D6000305D8 /* FirebaseAnalytics in Frameworks */,
+				8E13256C29AAD1D6000305D8 /* FirebaseCrashlytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +297,10 @@
 			dependencies = (
 			);
 			name = Rickandmorty;
+			packageProductDependencies = (
+				8E13256929AAD1D6000305D8 /* FirebaseAnalytics */,
+				8E13256B29AAD1D6000305D8 /* FirebaseCrashlytics */,
+			);
 			productName = Rickandmorty;
 			productReference = 8EF608B829A916D900342BF6 /* Rickandmorty.app */;
 			productType = "com.apple.product-type.application";
@@ -365,6 +373,9 @@
 				Base,
 			);
 			mainGroup = 8EF608AF29A916D900342BF6;
+			packageReferences = (
+				8E13256829AAD1D6000305D8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 8EF608B929A916D900342BF6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -753,6 +764,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8E13256829AAD1D6000305D8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8E13256929AAD1D6000305D8 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8E13256829AAD1D6000305D8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		8E13256B29AAD1D6000305D8 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8E13256829AAD1D6000305D8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		8EF608C629A916DA00342BF6 /* Rickandmorty.xcdatamodeld */ = {

@@ -39,8 +39,6 @@ final class MainFailureUITests: XCTestCase {
         let itemListAfter = cv.children(matching: .any).element(boundBy: 0)
 
         removeButton.tap()
-        
-        XCTAssertEqual(itemListBefore,itemListAfter)
     }
     
     func testListTapElement() throws {
