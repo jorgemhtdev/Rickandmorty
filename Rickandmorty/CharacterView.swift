@@ -10,7 +10,8 @@ struct CharacterView: View {
             case .empty:
                 Image(systemName: "photo")
                     .resizable()
-                
+                    .foregroundColor(Color.black.opacity(0.5))
+
             case .success(let image):
                 image
                     .resizable()
@@ -20,9 +21,12 @@ struct CharacterView: View {
                 Image(systemName: "exclamationmark.icloud")
                     .resizable()
                     .scaledToFit()
-                
+                    .foregroundColor(Color.black.opacity(0.5))
+
             @unknown default:
                 Image(systemName: "exclamationmark.icloud")
+                    .foregroundColor(Color.black.opacity(0.5))
+
             }
         }
     }

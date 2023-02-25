@@ -1,13 +1,32 @@
 import SwiftUI
 
 struct DetailView: View {
+    
+    @State private var presentSheet = false
+
+    let item:Result
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(item.name)
+        
+        Text(item.status.rawValue)
+        
+        Button() {
+            presentSheet = true
+        } label: {
+            Image(systemName: "menubar.arrow.up.rectangle")
+                .foregroundColor(.primary)
+                .font(.largeTitle)
+        }
+        .showSheetMap(presentSheet: $presentSheet) {
+            SheetInfo(item: item)
+        }
+        .padding()
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView()
+        DetailView(item: itemData)
     }
 }

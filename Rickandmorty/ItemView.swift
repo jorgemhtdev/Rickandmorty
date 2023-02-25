@@ -2,32 +2,45 @@ import SwiftUI
 
 struct ItemView: View {
     
+    @Environment(\.colorScheme) var colorScheme
+
     let character:Result
     
     var body: some View {
-        VStack {
+        VStack(spacing: 25) {
             CharacterView(img: character.image)
-                .frame(width: 250, height: 250)
-            
+                .clipShape(Circle())
+                .frame(width: 180, height: 180)
+                .shadow(color: Color.black.opacity(0.4), radius: 10, x: 0, y: 0)
+
             Text(character.name)
-                .font(.title)
-                .fontWeight(.bold)
-                .padding(.top, 16)
+                .titleTextStyle()
+
+            Label("Status: \(character.status.rawValue)", systemImage: "doc.text.image.fill")
+                .nameTextStyle()
             
-            Text("Status: \(character.status.rawValue)")
-                .font(.headline)
-                .padding(.top, 8)
-            
-            Text("Species: \(character.species)")
-                .font(.headline)
-                .padding(.top, 8)
-            
-            Link("See more", destination: URL(string: character.url)!)
-                .font(.headline)
-                .padding(.top, 16)
+            Label("Species: \(character.species)", systemImage: "info.circle")
+                .nameTextStyle()
+
+            Text("See more")
+                .nameTextStyle()
+                .padding([.leading, .trailing])
+                .background(Rectangle()
+                    .opacity(0.6)
+                    .foregroundColor(.white)
+                    .overlay(Material.thin)
+                    .cornerRadius(5))
+
             
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+        .padding().padding()
+        .frame(maxWidth: .infinity, alignment: .center)
+        .background(Rectangle()
+            .foregroundColor(.white)
+            .overlay(Material.ultraThin)
+            .cornerRadius(20))
+        .shadow(color: colorScheme == .dark ? Color.white.opacity(0.5) : Color.black.opacity(0.5), radius: 25, x: 0, y: 0)
+        .padding()
     }
 }
 
