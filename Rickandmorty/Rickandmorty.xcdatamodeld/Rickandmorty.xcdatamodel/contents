@@ -1,9 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22C65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CharacterDB" representedClassName="CharacterDB" syncable="YES" codeGenerationType="class">
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String"/>
+        <attribute name="name" attributeType="String" spotlightIndexingEnabled="YES"/>
+        <attribute name="species" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String" defaultValueString="&quot;&quot;"/>
+        <relationship name="gender" optional="YES" maxCount="1" deletionRule="Deny" destinationEntity="GenderDB" inverseName="character" inverseEntity="GenderDB"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LocationDB" inverseName="character" inverseEntity="LocationDB"/>
+        <relationship name="origin" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OriginDB" inverseName="character" inverseEntity="OriginDB"/>
+        <relationship name="status" optional="YES" maxCount="1" deletionRule="Deny" destinationEntity="StatusDB" inverseName="character" inverseEntity="StatusDB"/>
     </entity>
-    <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
-    </elements>
+    <entity name="GenderDB" representedClassName="GenderDB" syncable="YES" codeGenerationType="class">
+        <attribute name="gender" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="character" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CharacterDB" inverseName="gender" inverseEntity="CharacterDB"/>
+    </entity>
+    <entity name="LocationDB" representedClassName="LocationDB" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="location" optional="YES" attributeType="String"/>
+        <relationship name="character" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CharacterDB" inverseName="location" inverseEntity="CharacterDB"/>
+    </entity>
+    <entity name="OriginDB" representedClassName="OriginDB" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="origin" optional="YES" attributeType="String"/>
+        <relationship name="character" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CharacterDB" inverseName="origin" inverseEntity="CharacterDB"/>
+    </entity>
+    <entity name="StatusDB" representedClassName="StatusDB" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
+        <relationship name="character" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CharacterDB" inverseName="status" inverseEntity="CharacterDB"/>
+    </entity>
 </model>

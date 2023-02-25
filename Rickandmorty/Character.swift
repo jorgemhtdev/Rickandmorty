@@ -16,16 +16,13 @@ struct Result:Identifiable, Hashable, Decodable {
     let name: String
     let status: Status
     let species: String
-    let type: String
     let gender: Gender
     let origin, location: Location
     let image: String
-    let episode: [String]
     let url: String
-    let created: String
     
     private enum CodingKeys: String, CodingKey {
-        case id, name, status, species, type, gender, origin, location, image, episode, url, created
+        case id, name, status, species, gender, origin, location, image, url
     }
 }
 

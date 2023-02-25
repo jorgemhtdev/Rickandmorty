@@ -11,7 +11,7 @@ extension View {
     }
     
     @ViewBuilder
-    func showSheetMap<Content: View>(presentSheet: Binding<Bool>, @ViewBuilder content: @escaping () -> Content) -> some View {
+    func showSheet<Content: View>(presentSheet: Binding<Bool>, @ViewBuilder content: @escaping () -> Content) -> some View {
         if #available(iOS 16, *) {
             self.sheet(isPresented: presentSheet) {
                 content()

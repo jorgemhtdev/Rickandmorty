@@ -2,6 +2,7 @@ import SwiftUI
 
 @main
 struct RickandmortyApp: App {
+    
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {

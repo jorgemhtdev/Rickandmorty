@@ -2,31 +2,52 @@ import SwiftUI
 
 struct DetailView: View {
     
+    @Environment(\.dismiss) var dismiss
     @State private var presentSheet = false
 
-    let item:Result
+    let character:CharacterDB
+    
+    @State var name:String = ""
+    @State var status:String = ""
 
     var body: some View {
-        Text(item.name)
         
-        Text(item.status.rawValue)
-        
-        Button() {
-            presentSheet = true
-        } label: {
-            Image(systemName: "menubar.arrow.up.rectangle")
-                .foregroundColor(.primary)
-                .font(.largeTitle)
+        Form {
+            VStack(alignment: .leading) {
+                Text("name:")
+                TextField("Write the name", text: $name)
+            }
         }
-        .showSheetMap(presentSheet: $presentSheet) {
-            SheetInfo(item: item)
+        .onAppear {
+            name = character.name ?? ""
+            status = character.status?.status ?? ""
+            try? ctx.save()
         }
-        .padding()
+        .textFieldStyle(RoundedBorderTextFieldStyle())
+        .navigationBarTitle("Detail character", displayMode: .inline)
+        .navigationBarItems(trailing:
+            Button(action: {
+                dismiss()
+            }, label: {
+                Text("Save")
+            })
+        )
+//        Button() {
+//            presentSheet = true
+//        } label: {
+//            Image(systemName: "menubar.arrow.up.rectangle")
+//                .foregroundColor(.primary)
+//                .font(.largeTitle)
+//        }
+//        .showSheet(presentSheet: $presentSheet) {
+//            //SheetInfo(item: character)
+//        }
+//        .padding()
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(item: itemData)
+        DetailView(character: testCharacter())
     }
 }
