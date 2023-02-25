@@ -66,6 +66,62 @@ func cargaImgArtesanal() {
     }
 }
 
+func getStatus(status:String) -> StatusDB? {
+    let queryStatus:NSFetchRequest<StatusDB> = StatusDB.fetchRequest()
+    queryStatus.predicate = NSPredicate(format: "%K = %@", #keyPath(StatusDB.status), status)
+    do {
+        let fetch = try ctx.fetch(queryStatus)
+        if let statusFetched = fetch.first {
+            return statusFetched
+        }
+    } catch {
+        print("Error en la consulta del Status \(error)")
+    }
+    return nil
+}
+
+func getGender(gender:String) -> GenderDB? {
+    let queryGender:NSFetchRequest<GenderDB> = GenderDB.fetchRequest()
+    queryGender.predicate = NSPredicate(format: "%K = %@", #keyPath(GenderDB.gender), gender)
+    do {
+        let fetch = try ctx.fetch(queryGender)
+        if let genderFetched = fetch.first {
+            return genderFetched
+        }
+    } catch {
+        print("Error en la consulta del GENDER \(error)")
+    }
+    return nil
+}
+
+func getOrigin(origin:String) -> OriginDB? {
+    let queryOrigin:NSFetchRequest<OriginDB> = OriginDB.fetchRequest()
+    queryOrigin.predicate = NSPredicate(format: "%K = %@", #keyPath(OriginDB.origin), origin)
+    do {
+        let fetch = try ctx.fetch(queryOrigin)
+        if let originFetched = fetch.first {
+            return originFetched
+        }
+    } catch {
+        print("Error en la consulta del ORIGIN \(error)")
+    }
+    return nil
+}
+
+func getLocation(location:String) -> LocationDB? {
+    let queryLocation:NSFetchRequest<LocationDB> = LocationDB.fetchRequest()
+    queryLocation.predicate = NSPredicate(format: "%K = %@", #keyPath(LocationDB.location), location)
+    do {
+        let fetch = try ctx.fetch(queryLocation)
+        if let locationFetched = fetch.first {
+            return locationFetched
+        }
+    } catch {
+        print("Error en la consulta del LOCATION \(error)")
+    }
+    return nil
+}
+
 func createUpdateStatus(status:String) -> StatusDB? {
     let queryStatus:NSFetchRequest<StatusDB> = StatusDB.fetchRequest()
     queryStatus.predicate = NSPredicate(format: "%K = %@", #keyPath(StatusDB.status), status)

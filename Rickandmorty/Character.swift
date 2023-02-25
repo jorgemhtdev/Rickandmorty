@@ -27,7 +27,7 @@ struct Result:Identifiable, Hashable, Decodable {
 }
 
 // The gender of the character ('Female', 'Male', 'Genderless' or 'unknown').
-enum Gender:String, Decodable {
+enum Gender:String, Decodable, CaseIterable {
     case female = "Female"
     case male = "Male"
     case genderless = "genderless"
@@ -39,9 +39,22 @@ enum Gender:String, Decodable {
         case genderless = "genderless"
         case unknown = "unknown"
     }
+    
+    func stringValue() -> String {
+        switch(self) {
+        case .female:
+            return "female"
+        case .male:
+            return "male"
+        case .genderless:
+            return "genderless"
+        case .unknown:
+            return "unknown"
+        }
+    }
 }
 
-struct Location:Identifiable, Hashable, Decodable {
+struct Location:Identifiable, Hashable, Decodable{
     var id = UUID()
     let name: String
     let url: String
@@ -53,7 +66,7 @@ struct Location:Identifiable, Hashable, Decodable {
 }
 
 // The status of the character ('Alive', 'Dead' or 'unknown').
-enum Status:String, Decodable {
+enum Status:String, Decodable, CaseIterable{
     case alive = "Alive"
     case dead = "Dead"
     case unknown = "unknown"
@@ -62,5 +75,17 @@ enum Status:String, Decodable {
         case alive = "alive"
         case dead = "dead"
         case unknown = "unknown"
+    }
+    
+    
+    func stringValue() -> String {
+        switch(self) {
+        case .alive:
+            return "alive"
+        case .dead:
+            return "dead"
+        case .unknown:
+            return "unknown"
+        }
     }
 }

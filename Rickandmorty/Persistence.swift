@@ -4,7 +4,6 @@ let ctx = PersistenceController.shared.container.viewContext
 
 struct PersistenceController {
     
-    let container: NSPersistentCloudKitContainer
     static let shared = PersistenceController()
 
     static var preview: PersistenceController = {
@@ -37,6 +36,8 @@ struct PersistenceController {
         return result
     }()
     
+    let container: NSPersistentCloudKitContainer
+
     init(inMemory: Bool = false) {
         container = NSPersistentCloudKitContainer(name: "Rickandmorty")
         if inMemory {

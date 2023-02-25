@@ -8,6 +8,7 @@ struct ItemView: View {
 
     var body: some View {
         VStack(spacing: 25) {
+            
             CharacterCoreDataView(img: character.image)
                 .clipShape(Circle())
                 .frame(width: 180, height: 180)
@@ -15,10 +16,8 @@ struct ItemView: View {
 
             Text(character.name ?? "")
                 .titleTextStyle()
+                .minimumScaleFactor(0.01)
 
-            Label("Location: \(character.location?.location ?? "")", systemImage: "doc.text.image.fill")
-                .nameTextStyle()
-            
             Label("Status: \(character.status?.status ?? "")", systemImage: "doc.text.image.fill")
                 .nameTextStyle()
             

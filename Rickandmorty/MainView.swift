@@ -3,13 +3,17 @@ import SwiftUI
 struct MainView: View {
     
     @Environment(\.managedObjectContext) var context
-
+    
     @ObservedObject var vm = MainVM()
     
     @FetchRequest(sortDescriptors: [
         SortDescriptor(\.id)
     ])  var fetch:FetchedResults<CharacterDB>
-
+    
+    private var didSave =  NotificationCenter.default.publisher(for: .NSManagedObjectContextDidSave)
+    
+    @State private var refreshID = UUID()
+    
     var body: some View {
         CustomNavigation {
             ScrollView(.horizontal, showsIndicators: false) {
@@ -30,6 +34,10 @@ struct MainView: View {
                         }
                         .frame(width: 264, height: UIScreen.main.bounds.height / 1.5)
                     }
+                }
+                .id(refreshID)
+                .onReceive(self.didSave) { _ in
+                    self.refreshID = UUID()
                 }
                 .padding()
             }
