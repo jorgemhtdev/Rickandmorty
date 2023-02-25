@@ -16,8 +16,8 @@ struct ItemView: View {
 
             Text(character.name ?? "")
                 .titleTextStyle()
-                .minimumScaleFactor(0.01)
-
+                .accessibilityIdentifier("name")
+            
             Label("Status: \(character.status?.status ?? "")", systemImage: "doc.text.image.fill")
                 .nameTextStyle()
             

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E13256529AAA6EA000305D8 /* MainUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E13256429AAA6EA000305D8 /* MainUITest.swift */; };
 		8E47814C29A91E3C0044E67F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E47814B29A91E3C0044E67F /* NetworkService.swift */; };
 		8E47814E29A91E690044E67F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E47814D29A91E690044E67F /* Endpoint.swift */; };
 		8E47815029A91ED00044E67F /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E47814F29A91ED00044E67F /* Character.swift */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E13256429AAA6EA000305D8 /* MainUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUITest.swift; sourceTree = "<group>"; };
 		8E47814B29A91E3C0044E67F /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		8E47814D29A91E690044E67F /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		8E47814F29A91ED00044E67F /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
@@ -105,6 +107,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E13256229AAA6D4000305D8 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				8E13256429AAA6EA000305D8 /* MainUITest.swift */,
+			);
+			name = MainView;
+			sourceTree = "<group>";
+		};
+		8E13256329AAA6D9000305D8 /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DetailView;
+			sourceTree = "<group>";
+		};
 		8E47814829A91D6A0044E67F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +269,8 @@
 		8EF608DA29A916DB00342BF6 /* RickandmortyUITests */ = {
 			isa = PBXGroup;
 			children = (
+				8E13256329AAA6D9000305D8 /* DetailView */,
+				8E13256229AAA6D4000305D8 /* MainView */,
 				8EF608DB29A916DB00342BF6 /* RickandmortyUITests.swift */,
 				8EF608DD29A916DB00342BF6 /* RickandmortyUITestsLaunchTests.swift */,
 			);
@@ -422,6 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E13256529AAA6EA000305D8 /* MainUITest.swift in Sources */,
 				8EF608DC29A916DB00342BF6 /* RickandmortyUITests.swift in Sources */,
 				8EF608DE29A916DB00342BF6 /* RickandmortyUITestsLaunchTests.swift in Sources */,
 			);

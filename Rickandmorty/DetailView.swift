@@ -27,6 +27,7 @@ struct DetailView: View {
             VStack(alignment: .leading) {
                 Text("Name:")
                 TextField("Write the name", text: $name)
+                    .accessibilityIdentifier("name")
             }
             
             VStack(alignment: .leading) {

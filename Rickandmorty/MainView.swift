@@ -51,6 +51,7 @@ struct MainView: View {
                                             .overlay(Material.thin)
                                             .cornerRadius(5))
                                 }
+                                .accessibilityIdentifier("btn")
                             }
                             
 
@@ -63,6 +64,7 @@ struct MainView: View {
                     self.refreshID = UUID()
                 }
                 .padding()
+                .accessibilityIdentifier("lista")
             }
             .navDestination(with: CharacterDB.self) { item in
                 if #available(iOS 16.0, *) {
