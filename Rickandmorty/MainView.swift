@@ -73,6 +73,7 @@ struct MainView: View {
             }
             .navigationTitle("Personajes")
         }
+        .navigationViewStyle(.stack)
         .onAppear {
             vm.fetchData()
         }
